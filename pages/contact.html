@@ -1,1 +1,631 @@
  
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ - MathCenter</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .contact-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .contact-section {
+            padding: 80px 0;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .contact-info {
+            background: var(--bg-light);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .info-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+        
+        .info-content p {
+            color: var(--text-light);
+            margin: 0;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .form-control.error {
+            border-color: #ef4444;
+        }
+        
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .selected-course {
+            background: #eff6ff;
+            border: 2px solid var(--primary-color);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .selected-course h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .course-details {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-light);
+        }
+        
+        .map-section {
+            background: var(--bg-light);
+            padding: 60px 0;
+        }
+        
+        .map-container {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+            position: relative;
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+        
+        .success-message {
+            background: #f0fdf4;
+            border: 2px solid #22c55e;
+            color: #15803d;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+        
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar container">
+            <div class="logo">
+                <i class="fas fa-calculator"></i>
+                <span>MathCenter</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Trang Chủ</a></li>
+                <li><a href="courses.html">Khóa Học</a></li>
+                <li><a href="teachers.html">Giảng Viên</a></li>
+                <li><a href="quiz.html">Bài Tập</a></li>
+                <li><a href="contact.html" class="active">Liên Hệ</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="contact-header">
+        <div class="container">
+            <h1>Liên Hệ Với Chúng Tôi</h1>
+            <p>Đăng ký khóa học hoặc nhận tư vấn miễn phí</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-container">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h2>Thông Tin Liên Hệ</h2>
+                    <p style="margin-bottom: 2rem; color: var(--text-light);">
+                        Chúng tôi luôn sẵn sàng hỗ trợ bạn trong hành trình học tập
+                    </p>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Địa Chỉ</h3>
+                            <p>123 Đường Nguyễn Huệ, Quận 1<br>TP. Hồ Chí Minh, Việt Nam</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Điện Thoại</h3>
+                            <p>Hotline: 0123-456-789<br>Zalo: 0987-654-321</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Email</h3>
+                            <p>info@mathcenter.com<br>support@mathcenter.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Giờ Làm Việc</h3>
+                            <p>Thứ 2 - Thứ 7: 8:00 - 22:00<br>Chủ nhật: 8:00 - 20:00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h2>Đăng Ký Khóa Học</h2>
+                    
+                    <div class="success-message" id="success-message">
+                        <i class="fas fa-check-circle"></i>
+                        Cảm ơn bạn đã đăng ký! Chúng tôi sẽ liên hệ với bạn trong 24h.
+                    </div>
+                    
+                    <!-- Selected Course Display -->
+                    <div class="selected-course" id="selected-course" style="display: none;">
+                        <h4>Khóa học đã chọn:</h4>
+                        <div class="course-details">
+                            <span id="course-name">Tên khóa học</span>
+                            <span id="course-price">Giá</span>
+                        </div>
+                    </div>
+                    
+                    <form id="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">Họ và Tên *</label>
+                                <input type="text" id="fullName" name="fullName" class="form-control" required>
+                                <div class="error-message" id="fullName-error">Vui lòng nhập họ tên đầy đủ</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Số Điện Thoại *</label>
+                                <input type="tel" id="phone" name="phone" class="form-control" required>
+                                <div class="error-message" id="phone-error">Số điện thoại không hợp lệ</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" class="form-control">
+                                <div class="error-message" id="email-error">Email không hợp lệ</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="grade">Lớp *</label>
+                                <select id="grade" name="grade" class="form-control" required>
+                                    <option value="">Chọn lớp</option>
+                                    <option value="10">Lớp 10</option>
+                                    <option value="11">Lớp 11</option>
+                                    <option value="12">Lớp 12</option>
+                                </select>
+                                <div class="error-message" id="grade-error">Vui lòng chọn lớp</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="course">Khóa Học Quan Tâm *</label>
+                            <select id="course" name="course" class="form-control" required>
+                                <option value="">Chọn khóa học</option>
+                                <option value="algebra-10">Toán 10 - Căn Bản</option>
+                                <option value="geometry-10">Hình Học 10</option>
+                                <option value="algebra-11">Toán 11 - Nâng Cao</option>
+                                <option value="geometry-11">Hình Học Không Gian</option>
+                                <option value="algebra-12">Toán 12 - Luyện Thi Đại Học</option>
+                                <option value="combination">Tổ Hợp - Xác Suất</option>
+                            </select>
+                            <div class="error-message" id="course-error">Vui lòng chọn khóa học</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="schedule">Thời Gian Học Mong Muốn</label>
+                            <select id="schedule" name="schedule" class="form-control">
+                                <option value="">Chọn thời gian</option>
+                                <option value="morning">Buổi sáng (8:00-12:00)</option>
+                                <option value="afternoon">Buổi chiều (14:00-17:00)</option>
+                                <option value="evening">Buổi tối (19:00-21:00)</option>
+                                <option value="weekend">Cuối tuần</option>
+                                <option value="flexible">Linh hoạt</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Ghi Chú</label>
+                            <textarea id="message" name="message" class="form-control" rows="4" 
+                                placeholder="Chia sẻ thêm về mục tiêu học tập, trình độ hiện tại..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Gửi Đăng Ký
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2 class="text-center mb-3">Vị Trí Trung Tâm</h2>
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <div style="text-align: center;">
+                        <i class="fas fa-map-marked-alt" style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary-color);"></i>
+                        <p>Bản đồ Google Maps sẽ được tích hợp ở đây</p>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">
+                            123 Đường Nguyễn Huệ, Quận 1, TP.HCM
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MathCenter</h3>
+                    <p>Trung tâm dạy toán THPT hàng đầu</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Liên Hệ</h3>
+                    <p><i class="fas fa-phone"></i> 0123-456-789</p>
+                    <p><i class="fas fa-envelope"></i> info@mathcenter.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Đường ABC, TP.HCM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MathCenter. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        class ContactForm {
+            constructor() {
+                this.form = document.getElementById('contact-form');
+                this.successMessage = document.getElementById('success-message');
+                this.init();
+            }
+
+            init() {
+                this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+                this.loadSelectedCourse();
+                this.setupValidation();
+            }
+
+            loadSelectedCourse() {
+                const selectedCourse = localStorage.getItem('selectedCourse');
+                if (selectedCourse) {
+                    try {
+                        const course = JSON.parse(selectedCourse);
+                        this.displaySelectedCourse(course);
+                        this.preselectCourse(course);
+                    } catch (e) {
+                        console.error('Error parsing selected course:', e);
+                    }
+                }
+            }
+
+            displaySelectedCourse(course) {
+                const selectedCourseDiv = document.getElementById('selected-course');
+                const courseName = document.getElementById('course-name');
+                const coursePrice = document.getElementById('course-price');
+                
+                courseName.textContent = course.title;
+                coursePrice.textContent = course.price;
+                selectedCourseDiv.style.display = 'block';
+            }
+
+            preselectCourse(course) {
+                const courseSelect = document.getElementById('course');
+                // Try to match the course title with select options
+                for (let option of courseSelect.options) {
+                    if (course.title.includes(option.text) || option.text.includes(course.title.split(' ')[0])) {
+                        courseSelect.value = option.value;
+                        break;
+                    }
+                }
+            }
+
+            setupValidation() {
+                const inputs = this.form.querySelectorAll('.form-control');
+                inputs.forEach(input => {
+                    input.addEventListener('blur', () => this.validateField(input));
+                    input.addEventListener('input', () => this.clearError(input));
+                });
+            }
+
+            validateField(field) {
+                const value = field.value.trim();
+                let isValid = true;
+                let errorMessage = '';
+
+                switch (field.name) {
+                    case 'fullName':
+                        if (!value) {
+                            errorMessage = 'Vui lòng nhập họ tên';
+                            isValid = false;
+                        } else if (value.length < 2) {
+                            errorMessage = 'Họ tên phải có ít nhất 2 ký tự';
+                            isValid = false;
+                        }
+                        break;
+
+                    case 'phone':
+                        const phoneRegex = /^[0-9]{10}$/;
+                        if (!value) {
+                            errorMessage = 'Vui lòng nhập số điện thoại';
+                            isValid = false;
+                        } else if (!phoneRegex.test(value.replace(/\s/g, ''))) {
+                            errorMessage = 'Số điện thoại không hợp lệ (10 chữ số)';
+                            isValid = false;
+                        }
+                        break;
+
+                    case 'email':
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (value && !emailRegex.test(value)) {
+                            errorMessage = 'Email không hợp lệ';
+                            isValid = false;
+                        }
+                        break;
+
+                    case 'grade':
+                        if (!value) {
+                            errorMessage = 'Vui lòng chọn lớp';
+                            isValid = false;
+                        }
+                        break;
+
+                    case 'course':
+                        if (!value) {
+                            errorMessage = 'Vui lòng chọn khóa học';
+                            isValid = false;
+                        }
+                        break;
+                }
+
+                this.showError(field, errorMessage, !isValid);
+                return isValid;
+            }
+
+            showError(field, message, hasError) {
+                const errorElement = document.getElementById(`${field.name}-error`);
+                if (hasError) {
+                    field.classList.add('error');
+                    errorElement.textContent = message;
+                    errorElement.style.display = 'block';
+                } else {
+                    field.classList.remove('error');
+                    errorElement.style.display = 'none';
+                }
+            }
+
+            clearError(field) {
+                field.classList.remove('error');
+                const errorElement = document.getElementById(`${field.name}-error`);
+                if (errorElement) {
+                    errorElement.style.display = 'none';
+                }
+            }
+
+            validateForm() {
+                const requiredFields = ['fullName', 'phone', 'grade', 'course'];
+                let isValid = true;
+
+                requiredFields.forEach(fieldName => {
+                    const field = this.form.querySelector(`[name="${fieldName}"]`);
+                    if (!this.validateField(field)) {
+                        isValid = false;
+                    }
+                });
+
+                // Validate email if provided
+                const emailField = this.form.querySelector('[name="email"]');
+                if (emailField.value) {
+                    if (!this.validateField(emailField)) {
+                        isValid = false;
+                    }
+                }
+
+                return isValid;
+            }
+
+            async handleSubmit(e) {
+                e.preventDefault();
+                
+                if (!this.validateForm()) {
+                    return;
+                }
+
+                // Show loading state
+                const submitBtn = this.form.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang gửi...';
+                submitBtn.disabled = true;
+                this.form.classList.add('loading');
+
+                try {
+                    // Simulate API call
+                    await this.submitForm();
+                    
+                    // Show success message
+                    this.successMessage.style.display = 'block';
+                    this.form.reset();
+                    
+                    // Hide selected course
+                    document.getElementById('selected-course').style.display = 'none';
+                    localStorage.removeItem('selectedCourse');
+                    
+                    // Scroll to success message
+                    this.successMessage.scrollIntoView({ behavior: 'smooth' });
+                    
+                } catch (error) {
+                    alert('Có lỗi xảy ra, vui lòng thử lại sau!');
+                    console.error('Submit error:', error);
+                } finally {
+                    // Restore button state
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.form.classList.remove('loading');
+                }
+            }
+
+            async submitForm() {
+                const formData = new FormData(this.form);
+                const data = Object.fromEntries(formData.entries());
+                
+                // Add timestamp
+                data.submitTime = new Date().toISOString();
+                
+                // Save to localStorage for demo
+                const submissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
+                submissions.push(data);
+                localStorage.setItem('contactSubmissions', JSON.stringify(submissions));
+                
+                // Simulate network delay
+                return new Promise(resolve => setTimeout(resolve, 2000));
+            }
+        }
+
+        // Initialize contact form
+        document.addEventListener('DOMContentLoaded', () => {
+            new ContactForm();
+        });
+
+        // Phone number formatting
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 10) {
+                value = value.slice(0, 10);
+            }
+            e.target.value = value;
+        });
+    </script>
+</body>
+</html>

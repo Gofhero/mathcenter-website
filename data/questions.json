@@ -1,1 +1,229 @@
  
+{
+  "categories": {
+    "algebra": {
+      "name": "Đại Số",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Giải phương trình: 2x + 5 = 13",
+          "options": ["x = 4", "x = 3", "x = 5", "x = 6"],
+          "correct": 0,
+          "explanation": "2x + 5 = 13 ⟹ 2x = 13 - 5 = 8 ⟹ x = 4",
+          "difficulty": "easy",
+          "topic": "Phương trình bậc nhất"
+        },
+        {
+          "id": 2,
+          "question": "Tìm tập nghiệm của bất phương trình: x - 3 > 7",
+          "options": ["x > 10", "x < 10", "x > 4", "x < 4"],
+          "correct": 0,
+          "explanation": "x - 3 > 7 ⟹ x > 7 + 3 ⟹ x > 10",
+          "difficulty": "easy",
+          "topic": "Bất phương trình"
+        },
+        {
+          "id": 3,
+          "question": "Cho hàm số f(x) = 2x² - 3x + 1. Tính f(2)",
+          "options": ["f(2) = 3", "f(2) = 5", "f(2) = 7", "f(2) = 1"],
+          "correct": 0,
+          "explanation": "f(2) = 2(2)² - 3(2) + 1 = 2×4 - 6 + 1 = 8 - 6 + 1 = 3",
+          "difficulty": "medium",
+          "topic": "Hàm số"
+        },
+        {
+          "id": 4,
+          "question": "Phương trình x² - 5x + 6 = 0 có nghiệm là:",
+          "options": ["x = 2, x = 3", "x = 1, x = 6", "x = -2, x = -3", "x = 0, x = 5"],
+          "correct": 0,
+          "explanation": "x² - 5x + 6 = 0. Phân tích: (x-2)(x-3) = 0 ⟹ x = 2 hoặc x = 3",
+          "difficulty": "medium",
+          "topic": "Phương trình bậc hai"
+        },
+        {
+          "id": 5,
+          "question": "Tập xác định của hàm số y = √(x - 2) là:",
+          "options": ["[2; +∞)", "(-∞; 2]", "(2; +∞)", "(-∞; 2)"],
+          "correct": 0,
+          "explanation": "Để √(x - 2) có nghĩa thì x - 2 ≥ 0 ⟹ x ≥ 2",
+          "difficulty": "medium",
+          "topic": "Tập xác định"
+        },
+        {
+          "id": 6,
+          "question": "Đạo hàm của hàm số f(x) = x³ - 2x² + 3x - 1 là:",
+          "options": ["f'(x) = 3x² - 4x + 3", "f'(x) = 3x² - 2x + 3", "f'(x) = x² - 4x + 3", "f'(x) = 3x² - 4x + 1"],
+          "correct": 0,
+          "explanation": "f'(x) = (x³)' - (2x²)' + (3x)' - (1)' = 3x² - 4x + 3",
+          "difficulty": "hard",
+          "topic": "Đạo hàm"
+        }
+      ]
+    },
+    "geometry": {
+      "name": "Hình Học",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Diện tích hình tròn có bán kính 5cm là:",
+          "options": ["25π cm²", "10π cm²", "15π cm²", "20π cm²"],
+          "correct": 0,
+          "explanation": "Diện tích hình tròn S = πr² = π × 5² = 25π cm²",
+          "difficulty": "easy",
+          "topic": "Diện tích hình tròn"
+        },
+        {
+          "id": 2,
+          "question": "Trong tam giác vuông, nếu hai cạnh góc vuông là 3 và 4 thì cạnh huyền là:",
+          "options": ["5", "6", "7", "12"],
+          "correct": 0,
+          "explanation": "Theo định lý Pythagore: c² = 3² + 4² = 9 + 16 = 25 ⟹ c = 5",
+          "difficulty": "easy",
+          "topic": "Định lý Pythagore"
+        },
+        {
+          "id": 3,
+          "question": "Thể tích hình cầu có bán kính 3cm là:",
+          "options": ["36π cm³", "27π cm³", "18π cm³", "12π cm³"],
+          "correct": 0,
+          "explanation": "Thể tích hình cầu V = (4/3)πr³ = (4/3)π × 3³ = (4/3)π × 27 = 36π cm³",
+          "difficulty": "medium",
+          "topic": "Thể tích hình cầu"
+        },
+        {
+          "id": 4,
+          "question": "Chu vi hình vuông có cạnh 8cm là:",
+          "options": ["32cm", "24cm", "16cm", "64cm"],
+          "correct": 0,
+          "explanation": "Chu vi hình vuông = 4 × cạnh = 4 × 8 = 32cm",
+          "difficulty": "easy",
+          "topic": "Chu vi hình vuông"
+        },
+        {
+          "id": 5,
+          "question": "Góc nội tiếp chắn nửa đường tròn có số đo:",
+          "options": ["90°", "45°", "60°", "120°"],
+          "correct": 0,
+          "explanation": "Góc nội tiếp chắn nửa đường tròn luôn là góc vuông = 90°",
+          "difficulty": "medium",
+          "topic": "Góc nội tiếp"
+        },
+        {
+          "id": 6,
+          "question": "Trong không gian Oxyz, khoảng cách từ điểm A(1,2,3) đến mặt phẳng (P): x + y + z - 6 = 0 là:",
+          "options": ["0", "√3", "2√3", "3√3"],
+          "correct": 0,
+          "explanation": "d = |1×1 + 1×2 + 1×3 - 6|/√(1² + 1² + 1²) = |1+2+3-6|/√3 = 0",
+          "difficulty": "hard",
+          "topic": "Khoảng cách trong không gian"
+        }
+      ]
+    },
+    "calculus": {
+      "name": "Giải Tích",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Đạo hàm của hàm số f(x) = x³ là:",
+          "options": ["f'(x) = 3x²", "f'(x) = 3x", "f'(x) = x²", "f'(x) = 3x³"],
+          "correct": 0,
+          "explanation": "Áp dụng công thức (xⁿ)' = n.xⁿ⁻¹: (x³)' = 3x²",
+          "difficulty": "easy",
+          "topic": "Đạo hàm cơ bản"
+        },
+        {
+          "id": 2,
+          "question": "∫2x dx bằng:",
+          "options": ["x² + C", "2x² + C", "x + C", "2x + C"],
+          "correct": 0,
+          "explanation": "∫2x dx = 2∫x dx = 2 × (x²/2) + C = x² + C",
+          "difficulty": "easy",
+          "topic": "Tích phân cơ bản"
+        },
+        {
+          "id": 3,
+          "question": "Giới hạn lim(x→∞) (1/x) bằng:",
+          "options": ["0", "1", "∞", "-∞"],
+          "correct": 0,
+          "explanation": "Khi x tiến tới vô cùng, 1/x tiến tới 0",
+          "difficulty": "easy",
+          "topic": "Giới hạn"
+        },
+        {
+          "id": 4,
+          "question": "Đạo hàm của sin(x) là:",
+          "options": ["cos(x)", "-cos(x)", "sin(x)", "-sin(x)"],
+          "correct": 0,
+          "explanation": "Công thức cơ bản: (sin x)' = cos x",
+          "difficulty": "easy",
+          "topic": "Đạo hàm hàm lượng giác"
+        },
+        {
+          "id": 5,
+          "question": "Tích phân ∫₀¹ x dx bằng:",
+          "options": ["1/2", "1", "2", "0"],
+          "correct": 0,
+          "explanation": "∫₀¹ x dx = [x²/2]₀¹ = 1²/2 - 0²/2 = 1/2",
+          "difficulty": "medium",
+          "topic": "Tích phân xác định"
+        },
+        {
+          "id": 6,
+          "question": "Tìm cực trị của hàm số f(x) = x³ - 3x² + 2:",
+          "options": ["Cực đại tại x=0, cực tiểu tại x=2", "Cực đại tại x=2, cực tiểu tại x=0", "Không có cực trị", "Cực đại tại x=1"],
+          "correct": 0,
+          "explanation": "f'(x) = 3x² - 6x = 3x(x-2). f'(x) = 0 khi x = 0 hoặc x = 2. Kiểm tra dấu đạo hàm: cực đại tại x=0, cực tiểu tại x=2",
+          "difficulty": "hard",
+          "topic": "Cực trị hàm số"
+        }
+      ]
+    }
+  },
+  "mixed_questions": [
+    {
+      "id": 1,
+      "question": "Giải phương trình: 2x + 5 = 13",
+      "options": ["x = 4", "x = 3", "x = 5", "x = 6"],
+      "correct": 0,
+      "explanation": "2x + 5 = 13 ⟹ 2x = 8 ⟹ x = 4",
+      "category": "algebra",
+      "difficulty": "easy"
+    },
+    {
+      "id": 2,
+      "question": "Diện tích hình tròn có bán kính 3cm là:",
+      "options": ["9π cm²", "6π cm²", "3π cm²", "12π cm²"],
+      "correct": 0,
+      "explanation": "S = πr² = π × 3² = 9π cm²",
+      "category": "geometry",
+      "difficulty": "easy"
+    },
+    {
+      "id": 3,
+      "question": "Đạo hàm của f(x) = 2x² là:",
+      "options": ["f'(x) = 4x", "f'(x) = 2x", "f'(x) = x²", "f'(x) = 2"],
+      "correct": 0,
+      "explanation": "(2x²)' = 2 × 2x = 4x",
+      "category": "calculus",
+      "difficulty": "easy"
+    },
+    {
+      "id": 4,
+      "question": "Trong tam giác ABC vuông tại A, nếu AB = 3, AC = 4 thì BC = ?",
+      "options": ["5", "7", "6", "12"],
+      "correct": 0,
+      "explanation": "BC² = AB² + AC² = 3² + 4² = 9 + 16 = 25 ⟹ BC = 5",
+      "category": "geometry",
+      "difficulty": "medium"
+    },
+    {
+      "id": 5,
+      "question": "Tích phân ∫₀² x dx bằng:",
+      "options": ["2", "4", "1", "8"],
+      "correct": 0,
+      "explanation": "∫₀² x dx = [x²/2]₀² = 4/2 - 0 = 2",
+      "category": "calculus",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,1 +1,356 @@
  
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khóa Học - MathCenter</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .courses-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .filter-section {
+            background: var(--bg-light);
+            padding: 40px 0;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid var(--primary-color);
+            background: white;
+            color: var(--primary-color);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px 50px 12px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 25px;
+            font-size: 1rem;
+        }
+        
+        .search-box i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+        }
+        
+        .courses-section {
+            padding: 60px 0;
+        }
+        
+        .course-level {
+            background: var(--accent-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        .course-btn {
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .no-courses {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-light);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar container">
+            <div class="logo">
+                <i class="fas fa-calculator"></i>
+                <span>MathCenter</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Trang Chủ</a></li>
+                <li><a href="courses.html" class="active">Khóa Học</a></li>
+                <li><a href="teachers.html">Giảng Viên</a></li>
+                <li><a href="quiz.html">Bài Tập</a></li>
+                <li><a href="contact.html">Liên Hệ</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="courses-header">
+        <div class="container">
+            <h1>Khóa Học Toán THPT</h1>
+            <p>Chọn khóa học phù hợp với trình độ và mục tiêu của bạn</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Tất Cả</button>
+                <button class="filter-btn" data-filter="10">Lớp 10</button>
+                <button class="filter-btn" data-filter="11">Lớp 11</button>
+                <button class="filter-btn" data-filter="12">Lớp 12</button>
+                <button class="filter-btn" data-filter="algebra">Đại Số</button>
+                <button class="filter-btn" data-filter="geometry">Hình Học</button>
+            </div>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Tìm kiếm khóa học...">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses-section">
+        <div class="container">
+            <div class="courses-grid" id="courses-container">
+                <!-- Courses will be loaded by JavaScript -->
+            </div>
+            <div class="no-courses" id="no-courses" style="display: none;">
+                <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem; color: var(--text-light);"></i>
+                <h3>Không tìm thấy khóa học</h3>
+                <p>Thử tìm kiếm với từ khóa khác hoặc chọn bộ lọc khác</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MathCenter</h3>
+                    <p>Trung tâm dạy toán THPT hàng đầu</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Liên Hệ</h3>
+                    <p><i class="fas fa-phone"></i> 0123-456-789</p>
+                    <p><i class="fas fa-envelope"></i> info@mathcenter.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Đường ABC, TP.HCM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MathCenter. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Courses data
+        const allCourses = [
+            {
+                id: 1,
+                title: "Toán 10 - Căn Bản",
+                description: "Nắm vững kiến thức toán 10 với các chủ đề: Hàm số, Phương trình, Bất phương trình",
+                price: "800,000 VNĐ",
+                duration: "3 tháng",
+                level: "10",
+                category: "algebra",
+                image: "../images/course-1.jpg"
+            },
+            {
+                id: 2,
+                title: "Hình Học 10",
+                description: "Học hình học phẳng với các định lý cơ bản và ứng dụng thực tế",
+                price: "750,000 VNĐ",
+                duration: "2.5 tháng",
+                level: "10",
+                category: "geometry",
+                image: "../images/course-2.jpg"
+            },
+            {
+                id: 3,
+                title: "Toán 11 - Nâng Cao",
+                description: "Giải tích 11 với đạo hàm, tích phân và các ứng dụng",
+                price: "1,000,000 VNĐ",
+                duration: "4 tháng",
+                level: "11",
+                category: "algebra",
+                image: "../images/course-3.jpg"
+            },
+            {
+                id: 4,
+                title: "Hình Học Không Gian",
+                description: "Nắm vững hình học không gian lớp 11 với phương pháp trực quan",
+                price: "900,000 VNĐ",
+                duration: "3 tháng",
+                level: "11",
+                category: "geometry",
+                image: "../images/course-4.jpg"
+            },
+            {
+                id: 5,
+                title: "Toán 12 - Luyện Thi Đại Học",
+                description: "Ôn tập toàn diện, luyện đề thi đại học với phương pháp hiệu quả",
+                price: "1,500,000 VNĐ",
+                duration: "6 tháng",
+                level: "12",
+                category: "algebra",
+                image: "../images/course-5.jpg"
+            },
+            {
+                id: 6,
+                title: "Toán Tổ Hợp - Xác Suất",
+                description: "Chuyên đề tổ hợp và xác suất cho học sinh lớp 11-12",
+                price: "600,000 VNĐ",
+                duration: "2 tháng",
+                level: "12",
+                category: "algebra",
+                image: "../images/course-6.jpg"
+            }
+        ];
+
+        let filteredCourses = [...allCourses];
+
+        // DOM Elements
+        const coursesContainer = document.getElementById('courses-container');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const searchInput = document.getElementById('search-input');
+        const noCourses = document.getElementById('no-courses');
+
+        // Render courses
+        function renderCourses(courses) {
+            if (courses.length === 0) {
+                coursesContainer.style.display = 'none';
+                noCourses.style.display = 'block';
+                return;
+            }
+
+            coursesContainer.style.display = 'grid';
+            noCourses.style.display = 'none';
+
+            const coursesHTML = courses.map(course => `
+                <div class="course-card" data-level="${course.level}" data-category="${course.category}">
+                    <img src="${course.image}" alt="${course.title}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23f3f4f6%22/><text x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%236b7280%22>Lớp ${course.level}</text></svg>'">
+                    <div class="course-content">
+                        <div class="course-level">Lớp ${course.level}</div>
+                        <h3>${course.title}</h3>
+                        <p>${course.description}</p>
+                        <div class="course-meta">
+                            <span class="course-price">${course.price}</span>
+                            <span class="course-duration">
+                                <i class="fas fa-clock"></i> ${course.duration}
+                            </span>
+                        </div>
+                        <button class="btn btn-primary course-btn" onclick="enrollCourse(${course.id})">
+                            Đăng Ký Ngay
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+            coursesContainer.innerHTML = coursesHTML;
+        }
+
+        // Filter courses
+        function filterCourses(filter) {
+            if (filter === 'all') {
+                filteredCourses = [...allCourses];
+            } else if (['10', '11', '12'].includes(filter)) {
+                filteredCourses = allCourses.filter(course => course.level === filter);
+            } else {
+                filteredCourses = allCourses.filter(course => course.category === filter);
+            }
+            
+            // Apply search filter if there's search text
+            const searchText = searchInput.value.trim();
+            if (searchText) {
+                searchCourses(searchText);
+            } else {
+                renderCourses(filteredCourses);
+            }
+        }
+
+        // Search courses
+        function searchCourses(searchText) {
+            const searchFiltered = filteredCourses.filter(course => 
+                course.title.toLowerCase().includes(searchText.toLowerCase()) ||
+                course.description.toLowerCase().includes(searchText.toLowerCase())
+            );
+            renderCourses(searchFiltered);
+        }
+
+        // Event listeners
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                filterCourses(btn.dataset.filter);
+            });
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            const searchText = e.target.value.trim();
+            if (searchText) {
+                searchCourses(searchText);
+            } else {
+                renderCourses(filteredCourses);
+            }
+        });
+
+        // Enroll course function
+        function enrollCourse(courseId) {
+            const course = allCourses.find(c => c.id === courseId);
+            if (course) {
+                localStorage.setItem('selectedCourse', JSON.stringify(course));
+                window.location.href = 'contact.html';
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCourses(allCourses);
+        });
+    </script>
+</body>
+</html>

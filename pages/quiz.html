@@ -1,1 +1,433 @@
  
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Tập & Quiz - MathCenter</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .quiz-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .quiz-selection {
+            padding: 60px 0;
+            background: var(--bg-light);
+        }
+        
+        .quiz-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .quiz-container {
+            padding: 60px 0;
+            display: none;
+        }
+        
+        .quiz-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        
+        .quiz-header-info {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .quiz-progress {
+            background: var(--bg-light);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .progress-bar {
+            flex: 1;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            margin: 0 1rem;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .question-container {
+            padding: 2rem;
+        }
+        
+        .question-number {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .question-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .options-container {
+            margin-bottom: 2rem;
+        }
+        
+        .option {
+            background: var(--bg-light);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .option:hover {
+            border-color: var(--primary-color);
+            background: white;
+        }
+        
+        .option.selected {
+            border-color: var(--primary-color);
+            background: #eff6ff;
+        }
+        
+        .option.correct {
+            border-color: var(--accent-color);
+            background: #f0fdf4;
+        }
+        
+        .option.incorrect {
+            border-color: #ef4444;
+            background: #fef2f2;
+        }
+        
+        .quiz-actions {
+            padding: 2rem;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .quiz-result {
+            padding: 60px 0;
+            display: none;
+        }
+        
+        .result-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 3rem;
+            text-align: center;
+        }
+        
+        .result-score {
+            font-size: 4rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .result-message {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        
+        .calculator {
+            background: var(--bg-light);
+            padding: 60px 0;
+        }
+        
+        .calculator-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        
+        .calculator-display {
+            background: var(--text-dark);
+            color: white;
+            padding: 2rem;
+            text-align: right;
+            font-size: 2rem;
+            font-family: monospace;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        
+        .calculator-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        .calc-btn {
+            border: none;
+            padding: 1.5rem;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid #e5e7eb;
+        }
+        
+        .calc-btn:hover {
+            background: var(--bg-light);
+        }
+        
+        .calc-btn.operator {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .calc-btn.operator:hover {
+            background: #1d4ed8;
+        }
+        
+        .calc-btn.clear {
+            background: #ef4444;
+            color: white;
+        }
+        
+        .calc-btn.clear:hover {
+            background: #dc2626;
+        }
+        
+        .calc-btn.equals {
+            background: var(--accent-color);
+            color: white;
+        }
+        
+        .calc-btn.equals:hover {
+            background: #059669;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar container">
+            <div class="logo">
+                <i class="fas fa-calculator"></i>
+                <span>MathCenter</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Trang Chủ</a></li>
+                <li><a href="courses.html">Khóa Học</a></li>
+                <li><a href="teachers.html">Giảng Viên</a></li>
+                <li><a href="quiz.html" class="active">Bài Tập</a></li>
+                <li><a href="contact.html">Liên Hệ</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="quiz-header">
+        <div class="container">
+            <h1>Bài Tập & Kiểm Tra</h1>
+            <p>Kiểm tra kiến thức và rèn luyện kỹ năng giải toán</p>
+        </div>
+    </section>
+
+    <!-- Quiz Selection -->
+    <section class="quiz-selection" id="quiz-selection">
+        <div class="container">
+            <h2 class="text-center">Chọn Chủ Đề Kiểm Tra</h2>
+            <div class="quiz-categories">
+                <div class="category-card" onclick="startQuiz('algebra')">
+                    <div class="category-icon">
+                        <i class="fas fa-square-root-alt"></i>
+                    </div>
+                    <h3>Đại Số</h3>
+                    <p>Phương trình, bất phương trình, hàm số</p>
+                    <div class="btn btn-primary">Bắt Đầu</div>
+                </div>
+                <div class="category-card" onclick="startQuiz('geometry')">
+                    <div class="category-icon">
+                        <i class="fas fa-shapes"></i>
+                    </div>
+                    <h3>Hình Học</h3>
+                    <p>Hình học phẳng và không gian</p>
+                    <div class="btn btn-primary">Bắt Đầu</div>
+                </div>
+                <div class="category-card" onclick="startQuiz('calculus')">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Giải Tích</h3>
+                    <p>Đạo hàm, tích phân, ứng dụng</p>
+                    <div class="btn btn-primary">Bắt Đầu</div>
+                </div>
+                <div class="category-card" onclick="startQuiz('mixed')">
+                    <div class="category-icon">
+                        <i class="fas fa-random"></i>
+                    </div>
+                    <h3>Tổng Hợp</h3>
+                    <p>Các chủ đề khác nhau</p>
+                    <div class="btn btn-primary">Bắt Đầu</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Container -->
+    <section class="quiz-container" id="quiz-container">
+        <div class="container">
+            <div class="quiz-content">
+                <div class="quiz-header-info">
+                    <h2 id="quiz-title">Quiz Toán Học</h2>
+                    <p id="quiz-description">Trả lời các câu hỏi dưới đây</p>
+                </div>
+                
+                <div class="quiz-progress">
+                    <span id="question-counter">1/10</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill" style="width: 10%"></div>
+                    </div>
+                    <span id="timer">05:00</span>
+                </div>
+                
+                <div class="question-container">
+                    <div class="question-number" id="question-number">Câu hỏi 1/10</div>
+                    <div class="question-text" id="question-text">Đang tải câu hỏi...</div>
+                    <div class="options-container" id="options-container">
+                        <!-- Options will be loaded here -->
+                    </div>
+                </div>
+                
+                <div class="quiz-actions">
+                    <button class="btn btn-secondary" onclick="previousQuestion()" id="prev-btn" disabled>
+                        <i class="fas fa-arrow-left"></i> Câu Trước
+                    </button>
+                    <button class="btn btn-primary" onclick="nextQuestion()" id="next-btn">
+                        Câu Tiếp <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Result -->
+    <section class="quiz-result" id="quiz-result">
+        <div class="container">
+            <div class="result-card">
+                <div class="result-score" id="final-score">0/10</div>
+                <div class="result-message" id="result-message">Chúc mừng!</div>
+                <p id="result-details">Chi tiết kết quả của bạn</p>
+                <div style="margin-top: 2rem;">
+                    <button class="btn btn-primary" onclick="restartQuiz()">Làm Lại</button>
+                    <button class="btn btn-secondary" onclick="backToSelection()">Chọn Quiz Khác</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator -->
+    <section class="calculator">
+        <div class="container">
+            <h2 class="text-center mb-3">Máy Tính Hỗ Trợ</h2>
+            <div class="calculator-container">
+                <div class="calculator-display" id="calc-display">0</div>
+                <div class="calculator-buttons">
+                    <button class="calc-btn clear" onclick="clearCalculator()">C</button>
+                    <button class="calc-btn clear" onclick="clearEntry()">CE</button>
+                    <button class="calc-btn operator" onclick="inputOperator('/')">/</button>
+                    <button class="calc-btn operator" onclick="inputOperator('*')">×</button>
+                    
+                    <button class="calc-btn" onclick="inputNumber('7')">7</button>
+                    <button class="calc-btn" onclick="inputNumber('8')">8</button>
+                    <button class="calc-btn" onclick="inputNumber('9')">9</button>
+                    <button class="calc-btn operator" onclick="inputOperator('-')">-</button>
+                    
+                    <button class="calc-btn" onclick="inputNumber('4')">4</button>
+                    <button class="calc-btn" onclick="inputNumber('5')">5</button>
+                    <button class="calc-btn" onclick="inputNumber('6')">6</button>
+                    <button class="calc-btn operator" onclick="inputOperator('+')">+</button>
+                    
+                    <button class="calc-btn" onclick="inputNumber('1')">1</button>
+                    <button class="calc-btn" onclick="inputNumber('2')">2</button>
+                    <button class="calc-btn" onclick="inputNumber('3')">3</button>
+                    <button class="calc-btn equals" onclick="calculate()" rowspan="2">=</button>
+                    
+                    <button class="calc-btn" onclick="inputNumber('0')" style="grid-column: span 2;">0</button>
+                    <button class="calc-btn" onclick="inputDecimal()">.</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MathCenter</h3>
+                    <p>Trung tâm dạy toán THPT hàng đầu</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liên Hệ</h3>
+                    <p><i class="fas fa-phone"></i> 0123-456-789</p>
+                    <p><i class="fas fa-envelope"></i> info@mathcenter.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+</body>
+</html>

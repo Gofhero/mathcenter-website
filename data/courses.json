@@ -1,1 +1,281 @@
  
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "Toán 10 - Căn Bản",
+      "description": "Nắm vững kiến thức toán 10 với các chủ đề: Hàm số, Phương trình, Bất phương trình",
+      "price": "800,000 VNĐ",
+      "originalPrice": "1,000,000 VNĐ",
+      "duration": "3 tháng",
+      "level": "10",
+      "category": "algebra",
+      "image": "../images/course-1.jpg",
+      "instructor": "Thầy Nguyễn Văn An",
+      "students": 125,
+      "rating": 4.8,
+      "lessons": 24,
+      "features": [
+        "Học trực tuyến và offline",
+        "Tài liệu đầy đủ",
+        "Bài tập thực hành",
+        "Hỗ trợ 24/7"
+      ],
+      "syllabus": [
+        {
+          "week": 1,
+          "topic": "Mệnh đề và tập hợp",
+          "lessons": ["Mệnh đề", "Tập hợp", "Các phép toán trên tập hợp"]
+        },
+        {
+          "week": 2,
+          "topic": "Hàm số bậc nhất và bậc hai",
+          "lessons": ["Khái niệm hàm số", "Hàm số bậc nhất", "Hàm số bậc hai"]
+        },
+        {
+          "week": 3,
+          "topic": "Phương trình và hệ phương trình",
+          "lessons": ["Phương trình bậc nhất", "Phương trình bậc hai", "Hệ phương trình"]
+        }
+      ],
+      "schedule": [
+        {
+          "day": "Thứ 2, 4, 6",
+          "time": "19:00 - 21:00",
+          "type": "Online"
+        },
+        {
+          "day": "Chủ nhật",
+          "time": "08:00 - 12:00",
+          "type": "Offline"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Hình Học 10",
+      "description": "Học hình học phẳng với các định lý cơ bản và ứng dụng thực tế",
+      "price": "750,000 VNĐ",
+      "originalPrice": "950,000 VNĐ",
+      "duration": "2.5 tháng",
+      "level": "10",
+      "category": "geometry",
+      "image": "../images/course-2.jpg",
+      "instructor": "Cô Trần Thu Hương",
+      "students": 98,
+      "rating": 4.9,
+      "lessons": 20,
+      "features": [
+        "Phương pháp trực quan",
+        "Bài tập từ cơ bản đến nâng cao",
+        "Video bài giảng",
+        "Nhóm hỗ trợ học tập"
+      ],
+      "syllabus": [
+        {
+          "week": 1,
+          "topic": "Véc tơ trong mặt phẳng",
+          "lessons": ["Khái niệm véc tơ", "Các phép toán véc tơ", "Tích vô hướng"]
+        },
+        {
+          "week": 2,
+          "topic": "Hệ trục tọa độ",
+          "lessons": ["Tọa độ điểm", "Tọa độ véc tơ", "Phương trình đường thẳng"]
+        }
+      ],
+      "schedule": [
+        {
+          "day": "Thứ 3, 5, 7",
+          "time": "19:30 - 21:30",
+          "type": "Online"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Toán 11 - Nâng Cao",
+      "description": "Giải tích 11 với đạo hàm, tích phân và các ứng dụng",
+      "price": "1,000,000 VNĐ",
+      "originalPrice": "1,200,000 VNĐ",
+      "duration": "4 tháng",
+      "level": "11",
+      "category": "algebra",
+      "image": "../images/course-3.jpg",
+      "instructor": "Thầy Lê Minh Tuấn",
+      "students": 156,
+      "rating": 4.7,
+      "lessons": 32,
+      "features": [
+        "Chương trình nâng cao",
+        "Luyện đề chuyên sâu",
+        "Thi thử định kỳ",
+        "Cam kết đầu ra"
+      ],
+      "syllabus": [
+        {
+          "week": 1,
+          "topic": "Hàm số lượng giác",
+          "lessons": ["Đường tròn lượng giác", "Hàm số lượng giác", "Phương trình lượng giác"]
+        },
+        {
+          "week": 2,
+          "topic": "Tổ hợp và xác suất",
+          "lessons": ["Quy tắc đếm", "Hoán vị, chỉnh hợp, tổ hợp", "Xác suất"]
+        }
+      ],
+      "schedule": [
+        {
+          "day": "Thứ 2, 4, 6",
+          "time": "18:00 - 20:00",
+          "type": "Hybrid"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Hình Học Không Gian",
+      "description": "Nắm vững hình học không gian lớp 11 với phương pháp trực quan",
+      "price": "900,000 VNĐ",
+      "originalPrice": "1,100,000 VNĐ",
+      "duration": "3 tháng",
+      "level": "11",
+      "category": "geometry",
+      "image": "../images/course-4.jpg",
+      "instructor": "Cô Trần Thu Hương",
+      "students": 87,
+      "rating": 4.8,
+      "lessons": 24,
+      "features": [
+        "Mô hình 3D trực quan",
+        "Phần mềm hỗ trợ",
+        "Bài tập ứng dụng",
+        "Đánh giá thường xuyên"
+      ],
+      "syllabus": [
+        {
+          "week": 1,
+          "topic": "Đường thẳng và mặt phẳng",
+          "lessons": ["Quan hệ song song", "Quan hệ vuông góc", "Góc và khoảng cách"]
+        }
+      ],
+      "schedule": [
+        {
+          "day": "Thứ 3, 5, 7",
+          "time": "19:30 - 21:30",
+          "type": "Online"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Toán 12 - Luyện Thi Đại Học",
+      "description": "Ôn tập toàn diện, luyện đề thi đại học với phương pháp hiệu quả",
+      "price": "1,500,000 VNĐ",
+      "originalPrice": "1,800,000 VNĐ",
+      "duration": "6 tháng",
+      "level": "12",
+      "category": "exam-prep",
+      "image": "../images/course-5.jpg",
+      "instructor": "Thầy Lê Minh Tuấn",
+      "students": 234,
+      "rating": 4.9,
+      "lessons": 48,
+      "features": [
+        "Đề thi thử hàng tuần",
+        "Phân tích chi tiết đáp án",
+        "Lộ trình cá nhân hóa",
+        "Tư vấn chọn trường"
+      ],
+      "syllabus": [
+        {
+          "week": 1,
+          "topic": "Ôn tập kiến thức cơ bản",
+          "lessons": ["Hàm số", "Phương trình", "Hình học"]
+        },
+        {
+          "week": 2,
+          "topic": "Chuyên đề nâng cao",
+          "lessons": ["Tích phân", "Số phức", "Hình học không gian"]
+        }
+      ],
+      "schedule": [
+        {
+          "day": "Thứ 2, 4, 6",
+          "time": "18:00 - 20:00",
+          "type": "Offline"
+        },
+        {
+          "day": "Thứ 7",
+          "time": "08:00 - 12:00",
+          "type": "Thi thử"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Toán Tổ Hợp - Xác Suất",
+      "description": "Chuyên đề tổ hợp và xác suất cho học sinh lớp 11-12",
+      "price": "600,000 VNĐ",
+      "originalPrice": "750,000 VNĐ",
+      "duration": "2 tháng",
+      "level": "11-12",
+      "category": "specialty",
+      "image": "../images/course-6.jpg",
+      "instructor": "Thầy Đỗ Văn Hiếu",
+      "students": 67,
+      "rating": 4.6,
+      "lessons": 16,
+      "features": [
+        "Chuyên đề tập trung",
+        "Bài tập từ dễ đến khó",
+        "Ứng dụng thực tế",
+        "Luyện đề chuyên sâu"
+      ],
+      "syllabus": [
+        {
+          "week": 1,
+          "topic": "Quy tắc đếm",
+          "lessons": ["Quy tắc cộng và nhân", "Hoán vị", "Chỉnh hợp", "Tổ hợp"]
+        },
+        {
+          "week": 2,
+          "topic": "Xác suất",
+          "lessons": ["Khái niệm xác suất", "Các quy tắc tính xác suất", "Biến cố"]
+        }
+      ],
+      "schedule": [
+        {
+          "day": "Thứ 7",
+          "time": "14:00 - 18:00",
+          "type": "Offline"
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "algebra",
+      "name": "Đại Số",
+      "description": "Phương trình, bất phương trình, hàm số",
+      "icon": "fa-square-root-alt"
+    },
+    {
+      "id": "geometry",
+      "name": "Hình Học",
+      "description": "Hình học phẳng và không gian",
+      "icon": "fa-shapes"
+    },
+    {
+      "id": "exam-prep",
+      "name": "Luyện Thi",
+      "description": "Chuẩn bị cho các kỳ thi",
+      "icon": "fa-graduation-cap"
+    },
+    {
+      "id": "specialty",
+      "name": "Chuyên Đề",
+      "description": "Các chủ đề chuyên sâu",
+      "icon": "fa-star"
+    }
+  ]
+}

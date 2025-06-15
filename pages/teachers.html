@@ -1,1 +1,424 @@
  
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giảng Viên - MathCenter</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .teachers-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .teachers-section {
+            padding: 80px 0;
+        }
+        
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .teacher-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .teacher-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .teacher-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 2rem auto 1rem;
+            overflow: hidden;
+            border: 5px solid var(--bg-light);
+        }
+        
+        .teacher-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .teacher-info {
+            padding: 0 2rem 2rem;
+        }
+        
+        .teacher-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .teacher-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .teacher-specialties {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .specialty-tag {
+            background: var(--accent-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .teacher-experience {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+        
+        .teacher-bio {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .teacher-schedule {
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .schedule-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.25rem 0;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .teacher-contact {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .contact-btn {
+            padding: 8px 16px;
+            border: 2px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .contact-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .achievements {
+            background: var(--bg-light);
+            padding: 60px 0;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .achievement-item {
+            text-align: center;
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .achievement-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar container">
+            <div class="logo">
+                <i class="fas fa-calculator"></i>
+                <span>MathCenter</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Trang Chủ</a></li>
+                <li><a href="courses.html">Khóa Học</a></li>
+                <li><a href="teachers.html" class="active">Giảng Viên</a></li>
+                <li><a href="quiz.html">Bài Tập</a></li>
+                <li><a href="contact.html">Liên Hệ</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="teachers-header">
+        <div class="container">
+            <h1>Đội Ngũ Giảng Viên</h1>
+            <p>Gặp gỡ những giảng viên giàu kinh nghiệm và tâm huyết với nghề</p>
+        </div>
+    </section>
+
+    <!-- Teachers Section -->
+    <section class="teachers-section">
+        <div class="container">
+            <div class="teachers-grid" id="teachers-container">
+                <!-- Teachers will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements">
+        <div class="container">
+            <h2 class="text-center">Thành Tựu Của Chúng Tôi</h2>
+            <div class="achievements-grid">
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Giải Nhất</h3>
+                    <p>Cuộc thi giảng viên xuất sắc 2023</p>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>5 Sao</h3>
+                    <p>Đánh giá từ học viên và phụ huynh</p>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Chứng Nhận</h3>
+                    <p>Từ Bộ Giáo Dục & Đào Tạo</p>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>1000+</h3>
+                    <p>Học viên đã tốt nghiệp</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MathCenter</h3>
+                    <p>Trung tâm dạy toán THPT hàng đầu</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Liên Hệ</h3>
+                    <p><i class="fas fa-phone"></i> 0123-456-789</p>
+                    <p><i class="fas fa-envelope"></i> info@mathcenter.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Đường ABC, TP.HCM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MathCenter. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Teachers data
+        const teachers = [
+            {
+                id: 1,
+                name: "Thầy Nguyễn Văn An",
+                title: "Giảng viên chính - Trưởng phòng Đại số",
+                image: "../images/teacher-1.jpg",
+                specialties: ["Đại số", "Giải tích", "Luyện thi ĐH"],
+                experience: "12 năm kinh nghiệm",
+                bio: "Thạc sĩ Toán học, từng giành giải Nhất Olympic Toán toàn quốc. Có phương pháp giảng dạy sinh động và hiệu quả.",
+                schedule: [
+                    { day: "Thứ 2, 4, 6", time: "19:00 - 21:00" },
+                    { day: "Chủ nhật", time: "08:00 - 12:00" }
+                ],
+                phone: "0123-456-789",
+                email: "an@mathcenter.com"
+            },
+            {
+                id: 2,
+                name: "Cô Trần Thu Hương",
+                title: "Giảng viên - Chuyên gia Hình học",
+                image: "../images/teacher-2.jpg",
+                specialties: ["Hình học phẳng", "Hình học không gian", "Lớp 10-11"],
+                experience: "8 năm kinh nghiệm",
+                bio: "Cử nhân Sư phạm Toán, chuyên về hình học với phương pháp trực quan. Được học sinh yêu mến vì cách giảng dễ hiểu.",
+                schedule: [
+                    { day: "Thứ 3, 5, 7", time: "19:30 - 21:30" },
+                    { day: "Chủ nhật", time: "14:00 - 17:00" }
+                ],
+                phone: "0123-456-790",
+                email: "huong@mathcenter.com"
+            },
+            {
+                id: 3,
+                name: "Thầy Lê Minh Tuấn",
+                title: "Giảng viên - Chuyên gia Luyện thi",
+                image: "../images/teacher-3.jpg",
+                specialties: ["Luyện thi THPT QG", "Toán 12", "Phương pháp giải nhanh"],
+                experience: "10 năm kinh nghiệm",
+                bio: "Thạc sĩ Toán ứng dụng, chuyên luyện thi THPT Quốc gia. 95% học viên đạt điểm cao trong kỳ thi.",
+                schedule: [
+                    { day: "Thứ 2, 4, 6", time: "18:00 - 20:00" },
+                    { day: "Thứ 7", time: "08:00 - 12:00" }
+                ],
+                phone: "0123-456-791",
+                email: "tuan@mathcenter.com"
+            },
+            {
+                id: 4,
+                name: "Cô Phạm Thị Lan",
+                title: "Giảng viên - Chuyên môn Toán cơ bản",
+                image: "../images/teacher-4.jpg",
+                specialties: ["Toán 10", "Phương trình", "Bất phương trình"],
+                experience: "6 năm kinh nghiệm",
+                bio: "Cử nhân Toán học, chuyên giảng dạy học sinh yếu kém. Kiên nhẫn và tận tâm với từng học viên.",
+                schedule: [
+                    { day: "Thứ 3, 5", time: "19:00 - 21:00" },
+                    { day: "Thứ 7", time: "14:00 - 18:00" }
+                ],
+                phone: "0123-456-792",
+                email: "lan@mathcenter.com"
+            },
+            {
+                id: 5,
+                name: "Thầy Đỗ Văn Hiếu",
+                title: "Giảng viên - Chuyên gia Toán nâng cao",
+                image: "../images/teacher-5.jpg",
+                specialties: ["Olympic Toán", "Toán nâng cao", "Học sinh giỏi"],
+                experience: "15 năm kinh nghiệm",
+                bio: "Tiến sĩ Toán học, từng đạt giải Ba Olympic Toán Quốc tế. Chuyên training học sinh tham gia các cuộc thi toán.",
+                schedule: [
+                    { day: "Thứ 7", time: "08:00 - 12:00" },
+                    { day: "Chủ nhật", time: "08:00 - 12:00" }
+                ],
+                phone: "0123-456-793",
+                email: "hieu@mathcenter.com"
+            },
+            {
+                id: 6,
+                name: "Cô Nguyễn Thị Mai",
+                title: "Giảng viên - Chuyên gia Tư vấn học tập",
+                image: "../images/teacher-6.jpg",
+                specialties: ["Tư vấn học tập", "Tâm lý học đường", "Phương pháp học"],
+                experience: "7 năm kinh nghiệm",
+                bio: "Thạc sĩ Tâm lý giáo dục, hỗ trợ học sinh vượt qua khó khăn trong học tập. Luôn lắng nghe và chia sẻ.",
+                schedule: [
+                    { day: "Thứ 2 - Thứ 6", time: "17:00 - 19:00" },
+                    { day: "Tư vấn online", time: "20:00 - 22:00" }
+                ],
+                phone: "0123-456-794",
+                email: "mai@mathcenter.com"
+            }
+        ];
+
+        // Render teachers
+        function renderTeachers() {
+            const teachersContainer = document.getElementById('teachers-container');
+            
+            const teachersHTML = teachers.map(teacher => `
+                <div class="teacher-card">
+                    <div class="teacher-image">
+                        <img src="${teacher.image}" alt="${teacher.name}" 
+                             onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22><circle cx=%2275%22 cy=%2275%22 r=%2270%22 fill=%22%23e5e7eb%22/><text x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%236b7280%22 font-size=%2220%22>GV</text></svg>'">
+                    </div>
+                    <div class="teacher-info">
+                        <h3 class="teacher-name">${teacher.name}</h3>
+                        <div class="teacher-title">${teacher.title}</div>
+                        <div class="teacher-specialties">
+                            ${teacher.specialties.map(specialty => `<span class="specialty-tag">${specialty}</span>`).join('')}
+                        </div>
+                        <div class="teacher-experience">
+                            <i class="fas fa-clock"></i> ${teacher.experience}
+                        </div>
+                        <p class="teacher-bio">${teacher.bio}</p>
+                        <div class="teacher-schedule">
+                            <div class="schedule-title">Lịch Dạy:</div>
+                            ${teacher.schedule.map(item => `
+                                <div class="schedule-item">
+                                    <span>${item.day}</span>
+                                    <span>${item.time}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="teacher-contact">
+                            <a href="tel:${teacher.phone}" class="contact-btn">
+                                <i class="fas fa-phone"></i> Gọi
+                            </a>
+                            <a href="mailto:${teacher.email}" class="contact-btn">
+                                <i class="fas fa-envelope"></i> Email
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            teachersContainer.innerHTML = teachersHTML;
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTeachers();
+        });
+    </script>
+</body>
+</html>
