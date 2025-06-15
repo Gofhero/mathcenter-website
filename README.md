@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🧮 MathCenter - Website Trung Tâm Dạy Toán THPT
 
 Website hiện đại cho trung tâm dạy toán THPT với đầy đủ tính năng học tập trực tuyến.
@@ -127,3 +128,7 @@ Dự án được phân phối dưới [MIT License](LICENSE).
 ---
 
 ⭐ **Nếu dự án hữu ích, hãy cho một Star nhé!** ⭐
+=======
+# mathcenter-website
+Website trung tâm dạy toán THPT
+>>>>>>> 676d2df0a5da187f176e730f021579917c26b3fc
